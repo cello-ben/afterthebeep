@@ -12,7 +12,7 @@ export function GlobalProvider({ children }) {
     const [state, dispatch] = useReducer(GlobalReducer, initialState);
     async function getEntries() {
         try {
-            const res = await axios.get('http://localhost:4000/api/v1/entries');
+            const res = await axios.get('api/v1/entries');
             dispatch({
                 type: 'GET_ENTRIES',
                 payload: res.data.entries
@@ -24,7 +24,7 @@ export function GlobalProvider({ children }) {
     
     async function addEntry(entry) {
         try {
-            await axios.post('http://localhost:4000/api/v1/entries', {text: entry});
+            await axios.post('api/v1/entries', {text: entry});
         } catch (e) {
             console.error(e);
         }
