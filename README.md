@@ -18,6 +18,7 @@ Create a .env file in the root of the project containing a MONGO_URI and an ORIG
 
 In one terminal window:
     npm start
+
 In another one:
     cd client && npm start
 
