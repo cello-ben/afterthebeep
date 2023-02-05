@@ -5,7 +5,7 @@ require('dotenv').config({path: './.env'});
 const connectDB = require('./config/db');
 
 const app = express();
-//app.use(express.static('/client/build'));
+app.use(express.static('/client/build'));
 app.use(express.json());
 app.use(cors({
     origin: process.env.ORIGIN
@@ -17,7 +17,7 @@ const entries = require('./api/v1/routes/entries');
 app.use('/api/v1/entries', entries);
 
 app.get('/', (req, res) => {
-    return res.send('Working.');
+    return res.sendFile('index.html');
 });
 
 app.listen(process.env.PORT || 4000);
