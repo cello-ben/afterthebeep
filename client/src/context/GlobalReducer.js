@@ -1,5 +1,5 @@
 export default function globalReducer(state, action) {
-    switch(action) {
+    switch(action.type) {
         case 'GET_ENTRIES':
             return {
                 ...state, entries: action.payload
@@ -8,5 +8,7 @@ export default function globalReducer(state, action) {
             return {
                 ...state, entries: [action.payload, ...state.entries]
             };
+        default:
+            return state;
     }
 };
