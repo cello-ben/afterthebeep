@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+.mh-100 {
+  min-height: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* * {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  position: absolute;
+  width: 50%;
+  margin-top: 40px;
+  margin-left: auto;
+  display: inline block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.envelope {
+  background-image: url("../public/envelope.jpg");
+  margin: auto;
+  min-height: 400px;
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.message {
+  border: 2px;
+  border-style: groove;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+  display: inline-block;
+  width: 15%;
+  height: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.message-field {
+  display: block;
+  border: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  margin: auto;
+  width: 50%;
 }
+
+.message-field::placeholder {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  
+}
+
+.submit-button {
+  display: block;
+  margin: auto;
+  padding: 1%;
+  border: 5px;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: white;
+  font-size: large;
+} */

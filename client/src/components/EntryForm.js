@@ -11,13 +11,20 @@ export default function EntryForm() {
     }
 
     return (
+        
+        // <div className = "envelope">
+        <div className = "d-inline-flex flex-row justify-content-center m-4">
         <form onSubmit= { handleSubmit }>
-            <textarea 
+            <textarea
+            className = "message-field mx-auto" 
             value = { message } 
             onChange = { (event) => setMessage(event.target.value) } 
             placeholder = "Enter your message for the world."
             />
-            <input type = "submit" />
+            <br />
+            <input className = "btn btn-primary" type = "submit" />
         </form>
+        </div>
+        // </div>
     )
 }

@@ -17,17 +17,21 @@ Crucial
 Create a .env file in the root of the project containing a MONGO_URI and an ORIGIN. The former will allow you to connect to your own instance of MongoDB, and the latter will allow CORS from the React app to the API (http://localhost:3000 if running locally). 
 
 In one terminal window:
-    npm start
+#
+	npm start
 
 In another one:
-    cd client && npm start
+#
+	cd client && npm start
 
 This will work locally. However, make sure to comment out this line in server.js:
-    app.use(express.static('/client/build'));
+#
+	app.use(express.static('/client/build'));
 
 In a future version, I will look into doing this dynamically, and also using concurrently to allow easy use of backend and frontend together in a development environment.
 
 If you want to deploy, in the client directory, run:
+#
     npm run build
 
 If you have commented out the line mentioned previously, uncomment it so that you can access those static files that have been generated.
