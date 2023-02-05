@@ -8,6 +8,7 @@ export default function EntryForm() {
     function handleSubmit(event) {
         event.preventDefault();
         addEntry(message);
+        setMessage('');
     }
 
     return (
