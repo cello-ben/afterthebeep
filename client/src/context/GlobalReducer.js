@@ -5,6 +5,7 @@ export default function globalReducer(state, action) {
                 ...state, entries: action.payload
             };
         case 'ADD_ENTRY':
+            console.log(state);
             return {
                 ...state, entries: [action.payload, ...state.entries]
             };

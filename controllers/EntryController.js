@@ -2,7 +2,7 @@ const Entry = require('../models/Entry');
 
 module.exports.getEntries = async (req, res, next) => {
     try {
-        const entries = await Entry.find();
+        const entries = await Entry.find().sort({ _id: -1 });
         return res.status(200).json({
             success: true,
             count: entries.length,

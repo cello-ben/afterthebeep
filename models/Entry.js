@@ -4,6 +4,10 @@ const EntrySchema = new mongoose.Schema({
     text: {
         type: String,
         required: [true, 'Text entry is required.']
+    },
+    created: {
+        type: Date,
+        default: Date.now
     }
 });
 
