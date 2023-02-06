@@ -13,6 +13,10 @@ export default function SingleMessage() {
 
     const entry = entries.filter(elem => elem._id === id.id);
 
+    if(!entry) {
+        //TODO
+    }
+
     return (
         
         <div className = "container mt-4">
