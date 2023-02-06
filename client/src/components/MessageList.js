@@ -11,7 +11,7 @@ export default function MessageList(props) {
     return (
         <div className = "container mx-auto row">
             <h2 className = "text-center">Messages From The World</h2>
-            { entries.map(elem => { return <Message key = { elem._id } text = { elem.text } /> })}
+            { entries.map(elem => { return <Message key = { elem._id } id = { elem._id } text = { elem.text } /> })}
         </div>
         
     );

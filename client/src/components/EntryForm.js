@@ -14,7 +14,7 @@ export default function EntryForm() {
     return (
         
         // <div className = "envelope">
-        <div className = "d-inline-flex flex-row justify-content-center m-4">
+        <div className = "m-4">
         <form onSubmit= { handleSubmit }>
             <textarea
             className = "message-field mx-auto" 
@@ -23,7 +23,7 @@ export default function EntryForm() {
             placeholder = "Enter your message for the world."
             />
             <br />
-            <input className = "btn btn-primary" type = "submit" />
+            <input className = "btn btn-primary submit-button" type = "submit" />
         </form>
         </div>
         // </div>

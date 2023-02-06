@@ -1,19 +1,21 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { GlobalProvider } from "./context/GlobalState";
 
 import Header from './components/Header';
-import MessageList from "./components/MessageList";
-import EntryForm from "./components/EntryForm";
+import Index from './components/Index';
+import SingleMessage from './components/SingleMessage'
 
 import './App.css'
 
 function App() {
   return (
     <GlobalProvider>
-    <BrowserRouter>
       <Header />
-      <EntryForm />
-      <MessageList />
+      <BrowserRouter>
+      <Routes>
+      <Route exact path = "/" element = { <Index /> } />
+      <Route exact path = "/message/:id" element = { <SingleMessage />} />
+      </Routes>
     </BrowserRouter>
     </GlobalProvider>
   );

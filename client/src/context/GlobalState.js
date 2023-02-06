@@ -25,7 +25,6 @@ export function GlobalProvider({ children }) {
     async function addEntry(entry) {
         try {
             const res = await axios.post('https://afterthebeep.ue.r.appspot.com/api/v1/entries', {text: entry});
-            console.log(res);
             dispatch({
                 type: 'ADD_ENTRY',
                 payload: res.data.entry

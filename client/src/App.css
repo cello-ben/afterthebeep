@@ -1,18 +1,17 @@
 .mh-100 {
   min-height: 100px;
 }
-
-/* * {
+ * {
   box-sizing: border-box;
 }
 
-.container {
+/* .container {
   position: absolute;
   width: 50%;
   margin-top: 40px;
   margin-left: auto;
   display: inline block;
-}
+} */
 
 .envelope {
   background-image: url("../public/envelope.jpg");
@@ -51,7 +50,7 @@
 }
 
 .submit-button {
-  display: block;
+  /* display: block;
   margin: auto;
   padding: 1%;
   border: 5px;
@@ -59,4 +58,7 @@
   border-radius: 10px;
   background-color: white;
   font-size: large;
-} */
+  margin: auto; */
+  width: 200px;
+  left: calc(100% - 200px / 2);
+}
