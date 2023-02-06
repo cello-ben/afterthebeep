@@ -3,7 +3,7 @@ require('dotenv').config({path: './.env'})
 
 module.exports.getEntries = async (req, res, next) => {
     try {
-        const entries = await Entry.find().sort({ _id: -1 }).limit(process.env.DOC_LIMIT);
+        const entries = await Entry.find().sort({ created: -1 }).limit(process.env.DOC_LIMIT);
         return res.status(200).json({
             success: true,
             count: entries.length,
