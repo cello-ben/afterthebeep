@@ -9,9 +9,9 @@ app.use(express.static('client/build'));
 app.use(express.json());
 
 // For development:
-app.use(cors({
-    origin: process.env.ORIGIN
-}));
+// app.use(cors({
+//     origin: process.env.ORIGIN
+// }));
 
 connectDB();
 
