@@ -1,31 +1,37 @@
-import React, { useContext, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-
-import { Context } from '../context/GlobalState';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link, Navigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function SingleMessage() {
-    const { entries, getEntries } = useContext(Context);
+    
+    const params = useParams();
+    const id = params.id;
+
+    const [state, setState] = useState();
+
     useEffect(() => {
-        getEntries();
-    }, [getEntries]);
+        async function getSingleEntry(id) {
+            const res = await axios.get(`http://localhost:4000/api/v1/entries/message/${id}`, {
+                validateStatus: (status) => {
+                    return status <= 500;
+                }
+            });
+            setState(res);
+        }
+        getSingleEntry(id);
+    }, [state, id]);
 
-    const id = useParams();
 
-    const entry = entries.filter(elem => elem._id === id.id);
-
-    if(!entry) {
-        //TODO
-    }
-
-    return (
-        
+    return (  
         <div className = "container mt-4">
-        { entries !== null && entries !== undefined && entries.length !== 0 ? 
-        <>
-        <Link to = "/" className = "btn btn-primary">Back</Link>
-        <p>{ entry[0] !== undefined ? entry[0].text : 'Message not found.'} </p>
-        </>
-        : 'Loading...'}
-        </div>
+            { state !== null && state !== undefined ? 
+                 <>  
+                 { !state.error ? 
+                 <>
+                <Link to = "/" className = "btn btn-primary">Back</Link>
+                <p>{ state.data.entry !== undefined ? state.data.entry.text : <Navigate to = "/error" state = { state.data.error } /> } </p> </>
+                
+            : 'Not found.' } </> : 'Loading...'}       
+        </div> 
     );
 };

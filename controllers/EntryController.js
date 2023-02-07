@@ -41,9 +41,15 @@ module.exports.addEntry = async (req, res, next) => {
 };
 
 module.exports.getSingleEntry = async (req, res, next) => {
+    const id = req.params.id;
+    if(id.length !== 12 && id.length !== 24) {
+        return res.status(400).json({
+            success: false,
+            error: `Invalid request. Error 400`
+        });
+    }
     try {
         const entry = await Entry.findOne({_id: req.params.id});
-        console.log(entry);
         if(entry) {
             return res.status(200).json({
                 success: true,
@@ -52,11 +58,10 @@ module.exports.getSingleEntry = async (req, res, next) => {
         } else {
             return res.status(404).json({
                 success: false,
-                error: `Not found. Error ${res.statusCode}`
+                error: `Not found. Error 404`
             });
         }
     } catch (e) {
-        //TODO Account for entry not found.
         return res.status(500).json({
             success: false,
             error: `Server Error ${res.statusCode}`
