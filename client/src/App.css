@@ -63,9 +63,12 @@
   left: calc(100% - 200px / 2);
 }
 
+
+/* Was told this was the original Bootstrap code, plus my addition of the alignment. */
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
   background-color: #e9ecef;
   border-radius: .3rem;
+  text-align: center;
 }
