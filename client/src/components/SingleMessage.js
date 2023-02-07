@@ -11,7 +11,7 @@ export default function SingleMessage() {
 
     useEffect(() => {
         async function getSingleEntry(id) {
-            const res = await axios.get(`http://localhost:4000/api/v1/entries/message/${id}`, {
+            const res = await axios.get(`api/v1/entries/message/${id}`, {
                 validateStatus: (status) => {
                     return status <= 500;
                 }
