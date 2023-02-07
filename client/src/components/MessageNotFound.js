@@ -7,7 +7,7 @@ export default function MessageNotFound() {
     console.log(err);
     return (
         <div className = "jumbotron">
-        { err !== undefined && err !== null ? <h1 className = "">{ err }</h1> : 'No error found.' }
+        { err !== undefined && err !== null ? <h1 className = "">{ err }</h1> : 'No error found.<br>' }
         <Link to = ".." className = "btn btn-primary">Back Home</Link>
        </div>
     );

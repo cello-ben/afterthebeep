@@ -11,12 +11,14 @@ export default function SingleMessage() {
 
     useEffect(() => {
         async function getSingleEntry(id) {
-            const res = await axios.get(`api/v1/entries/message/${id}`, {
+            const res = await axios.get(`/api/v1/entries/message/${id}`, {
                 validateStatus: (status) => {
+                    console.log('Status validated.');
                     return status <= 500;
                 }
             });
             setState(res);
+            console.log(state)
         }
         getSingleEntry(id);
     }, [state, id]);

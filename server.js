@@ -21,4 +21,8 @@ app.get('/', (req, res) => {
     return res.sendFile('index.html');
 });
 
+app.get('*', (req, res) => {
+    return res.redirect('/');
+});
+
 app.listen(process.env.PORT || 4000);
