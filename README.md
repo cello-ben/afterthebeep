@@ -1,11 +1,8 @@
 # Leave a message...After The Beep
-After The Beep is a simple concept with a twist. It's a message board where anyone can post a message and have it visible to the world. Visitors will see all of these messages, which are stored in the backend, when they go to the site. But of course, a situation like this can be very dangerous. Inappropriate content could compromise the integrity of the site. To help with this, After The Beep uses an ML model to detect inappropriate text. If the model determines that the text is inappropriate, the API will prevent the text from being stored in the backend.
-
-# Usage
-Just go to the website and use.
+After The Beep is a simple concept with a twist. It's a message board where anyone can post a message and have it visible to the world. Visitors will see all of these messages, which are stored in the backend, when they go to the site. But of course, a situation like this can be very dangerous. Inappropriate content could compromise the integrity of the site. To help with this, After The Beep uses a package that determines if the text is inappropriate, and if so, the API will prevent the text from being stored in the backend.
 
 # SAFETY LIMITATIONS
-Crucial
+TODO
 
 # Running Locally
     git clone https://github.com/cello-ben/afterthebeep.git
