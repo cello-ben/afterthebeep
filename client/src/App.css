@@ -5,24 +5,6 @@
   box-sizing: border-box;
 }
 
-/* .container {
-  position: absolute;
-  width: 50%;
-  margin-top: 40px;
-  margin-left: auto;
-  display: inline block;
-} */
-
-.envelope {
-  background-image: url("../public/envelope.jpg");
-  margin: auto;
-  min-height: 400px;
-  background-size: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
 .message {
   border: 2px;
   border-style: groove;
@@ -44,31 +26,25 @@
 }
 
 .message-field::placeholder {
-  /* font-family: 'Times New Roman', Times, serif; */
   font-size: large;
   
 }
 
 .submit-button {
-  /* display: block;
+  display: block;
   margin: auto;
-  padding: 1%;
-  border: 5px;
-  border-style: solid;
-  border-radius: 10px;
-  background-color: white;
-  font-size: large;
-  margin: auto; */
-  width: 200px;
-  left: calc(100% - 200px / 2);
+  margin-top: 10px;
 }
 
+.toast {
+  background-color: red;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+  animation: popUpToast 1s 5s forwards;
+  visibility: hidden;
+}
 
-/* Was told this was the original Bootstrap code, plus my addition of the alignment. */
-.jumbotron {
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
-  background-color: #e9ecef;
-  border-radius: .3rem;
-  text-align: center;
+@keyframes popUpToast {
+  to { visibility: visible; }
 }

@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const initialState = {
     entries: [],
+    hasProhibitedText: false
 };
 
 export const Context = createContext(initialState);
@@ -25,11 +26,21 @@ export function GlobalProvider({ children }) {
     async function addEntry(entry) {
         try {
             const res = await axios.post('api/v1/entries', {text: entry});
-            dispatch({
-                type: 'ADD_ENTRY',
-                payload: res.data.entry
-            });
+            console.log(await res.json());
+            
+                dispatch({
+                    type: 'ADD_ENTRY',
+                    payload: res.data.entry
+                });
         } catch (e) {
+            console.error(e);
+            if (e.response.status === 403) {
+                console.log('PROFANITY!!!');
+                dispatch({
+                    type: 'PROFANITY_DETECTED'
+                });
+                return;
+            }
             console.error(e);
         }
     }
@@ -38,6 +49,7 @@ export function GlobalProvider({ children }) {
         <Context.Provider
         value = { {
             entries: state.entries,
+            hasProhibitedText: state.hasProhibitedText,
             getEntries,
             addEntry
         } } >    

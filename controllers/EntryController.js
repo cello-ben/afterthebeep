@@ -1,5 +1,11 @@
 const Entry = require('../models/Entry');
-require('dotenv').config({path: './.env'})
+require('dotenv').config({path: './.env'});
+const { Profanity, CensorType } = require('@2toad/profanity');
+
+const profanity = new Profanity({
+    languages: ['en', 'de', 'fr', 'es'],
+    wholeWord: false
+});
 
 module.exports.getEntries = async (req, res, next) => {
     try {
@@ -19,7 +25,11 @@ module.exports.getEntries = async (req, res, next) => {
 
 module.exports.addEntry = async (req, res, next) => {
     try {
-        const entry = await Entry.create(req.body);
+        const body = req.body;
+        if (profanity.exists(body.text)) {
+            throw new Error('Profanity detected.');
+        }
+        const entry = await Entry.create(body);
         return res.status(200).json({
             success: true,
             entry: entry
@@ -30,6 +40,11 @@ module.exports.addEntry = async (req, res, next) => {
                 return res.status(404).json({
                     success: false,
                     errors: messages
+                });
+            } else if (e.message === 'Profanity detected.') {
+                return res.status(403).json({
+                    success: false,
+                    errors: [e.message]
                 });
             } else {
                 return res.status(500).json({

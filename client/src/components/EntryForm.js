@@ -22,7 +22,7 @@ export default function EntryForm() {
             onChange = { (event) => setMessage(event.target.value) } 
             placeholder = "Enter your message for the world."
             />
-            <br />
+            
             <input className = "btn btn-primary submit-button" type = "submit" />
         </form>
         </div>
